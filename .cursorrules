@@ -1,0 +1,59 @@
+# Tech Stack
+
+## Monorepo
+
+- Managed with **Turborepo** for efficient multi-package project management.
+- **pnpm** for package management, offering faster installs and better disk space usage compared to npm or yarn.
+
+## Backend
+
+- **Language**: TypeScript with Node.js for strongly typed development.
+- **Framework**: Express.js for API development.
+- **Database**: PostgreSQL with TypeORM for database interactions.
+- **Authentication**: Clerk for user management and authentication.
+- **Validation**: Zod for input validation and schema definitions.
+- **API Documentation**: Swagger (via swagger-jsdoc and swagger-ui-express) for interactive API documentation.
+- **Validation**: Use Zod schemas for requests and schema validation.
+- **File Storage**: S3 for file storage.
+- **CDN**: Cloudfront for CDN.
+- **Jest**: For testing.
+
+## Frontend
+
+- **Frontend Framework**: React with TypeScript and Nextjs for fast development and optimized builds.
+- **Styling**: Tailwind CSS
+- **UI Components**: Shadcn UI
+- **Authentication**: @clerk/clerk-react for seamless frontend integration with Clerk.
+- **Routing**: React Router file-based routing convention.
+- **Component Structure**: Functional components with hooks, proper prop typing, reusable components, and Shadcn UI components for consistent design.
+- **State Management**: React hooks for local state, React Query for server state management, and handling loading and error states using React Query's built-in states.
+- **Data Fetching**: useQuery for fetching data, useMutation for modifying data, proper error handling and retries, and utilizing React Query's caching capabilities.
+- **Utilities**:
+- axios for HTTP requests.
+- **Validation**: Zod for input validation and schema definitions.
+- **Form Handling**: React Hook Form for efficient form management, providing easy-to-use APIs for handling validation, submission, and dynamic forms. Integration with Zod ensures seamless schema-based validation, enhancing form robustness and reducing boilerplate code.
+- Use React Query for optimized state and API data management.
+- Follow React best practices for component structure and lifecycle.
+
+## Version Control
+
+- **Git** for version management and collaborative workflows.
+
+## Deployment
+
+- **Docker** support for containerized deployments.
+
+# Code Quality
+
+- Ensure secure, efficient, and maintainable code across backend and frontend.
+- Best practices for code quality and design patterns.
+- Use ESLint for code linting and formatting.
+- Use Prettier for code formatting.
+- Use Husky for git hooks.
+- Use TypeORM for database interactions.
+- When creating new files, use the correct file structure specified in @project-specification-and-instructions/file-structure.md.
+
+# Optimization
+
+- Share reusable logic across backend and frontend via monorepo structure.
+- Optimize frontend performance with Nextjs and React Query (TanStack Query) for data fetching and caching strategies.

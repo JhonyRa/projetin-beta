@@ -1,0 +1,68 @@
+erDiagram
+    users {
+        uuid id PK
+        varchar(255) email UK
+        varchar(100) first_name
+        varchar(100) last_name
+        varchar(255) google_id UK
+        varchar(20) role
+        timestamp created_at
+        timestamp updated_at
+        bool is_active
+    }
+
+    folders {
+        uuid id PK
+        uuid father_folder_id FK
+        varchar(100) name
+        text description
+        int display_order
+        timestamp created_at
+        timestamp updated_at
+        uuid created_by_user_id FK
+    }
+
+    folder_permissions {
+        uuid permission_id PK
+        uuid folder_id FK
+        uuid user_id FK
+        varchar(20) permission_type
+        timestamp created_at
+        timestamp updated_at
+        uuid granted_by_user_id FK
+    }
+
+    videos {
+        uuid id PK
+        uuid folder_id FK
+        varchar(255) title
+        text description
+        varchar(255) s3_key
+        varchar(255) thumbnail_url
+        int duration_seconds
+        int display_order
+        timestamp created_at
+        timestamp updated_at
+        uuid created_by_user_id FK
+        bool is_active
+    }
+
+    video_views {
+        uuid view_id PK
+        uuid video_id FK
+        uuid user_id FK
+        timestamp viewed_at
+        int watch_duration_seconds
+        bool completed
+        timestamp created_at
+    }
+
+    users ||--o{ folders : "creates"
+    users ||--o{ videos : "uploads"
+    users ||--o{ video_views : "views"
+    users ||--o{ folder_permissions : "has"
+    users ||--o{ folder_permissions : "grants"
+    folders ||--o{ videos : "contains"
+    folders ||--o{ folder_permissions : "has"
+    folders ||--o{ folders : "has sub-folders"
+    videos ||--o{ video_views : "has"
